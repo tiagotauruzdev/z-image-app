@@ -19,9 +19,7 @@ const formSchema = z.object({
 		.string()
 		.min(1, "O prompt é obrigatório")
 		.max(MAX_PROMPT_LENGTH, `O prompt deve ter no máximo ${MAX_PROMPT_LENGTH} caracteres`),
-	aspectRatio: z.enum(["1:1", "4:3", "3:4", "16:9", "9:16"], {
-		errorMap: () => ({ message: "Selecione uma proporção" }),
-	}),
+	aspectRatio: z.enum(["1:1", "4:3", "3:4", "16:9", "9:16"]).default("1:1"),
 });
 
 type FormValues = z.infer<typeof formSchema>;
