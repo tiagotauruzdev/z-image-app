@@ -20,7 +20,7 @@ const formSchema = z.object({
 		.min(1, "O prompt é obrigatório")
 		.max(MAX_PROMPT_LENGTH, `O prompt deve ter no máximo ${MAX_PROMPT_LENGTH} caracteres`),
 	aspectRatio: z.enum(["1:1", "4:3", "3:4", "16:9", "9:16"], {
-		required_error: "Selecione uma proporção",
+		errorMap: () => ({ message: "Selecione uma proporção" }),
 	}),
 });
 
