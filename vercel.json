@@ -1,8 +1,11 @@
 {
-  "buildCommand": "cd apps/web && pnpm run build",
   "installCommand": "pnpm install",
-  "outputDirectory": "apps/web/.next",
-  "framework": "nextjs",
+  "buildCommand": "pnpm run build",
+  "functions": {
+    "apps/server/src/index.ts": {
+      "maxDuration": 30
+    }
+  },
   "rewrites": [
     {
       "source": "/api/(.*)",
