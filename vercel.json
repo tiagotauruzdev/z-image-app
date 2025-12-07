@@ -1,9 +1,8 @@
 {
-  "buildCommand": "pnpm run build",
+  "buildCommand": "cd apps/web && pnpm run build",
   "installCommand": "pnpm install",
-  "outputDirectory": ".next",
+  "outputDirectory": "apps/web/.next",
   "framework": "nextjs",
-  "rootDirectory": "apps/web",
   "rewrites": [
     {
       "source": "/api/(.*)",
