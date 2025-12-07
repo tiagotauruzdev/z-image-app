@@ -1,6 +1,7 @@
 {
   "buildCommand": "pnpm run build",
   "installCommand": "pnpm install",
+  "outputDirectory": "apps/web/.next",
   "framework": null,
   "rewrites": [
     {
