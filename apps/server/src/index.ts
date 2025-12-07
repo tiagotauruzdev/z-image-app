@@ -24,6 +24,10 @@ app.get("/", (c) => {
 	return c.text("OK");
 });
 
+// Para Vercel
+export default app;
+
+// Para desenvolvimento local
 import { serve } from "@hono/node-server";
 
 serve(

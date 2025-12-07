@@ -2,26 +2,15 @@
   "buildCommand": "pnpm run build",
   "installCommand": "pnpm install",
   "framework": null,
-  "outputDirectory": ".next",
-  "builds": [
+  "rewrites": [
     {
-      "src": "apps/web/package.json",
-      "use": "@vercel/next.js"
-    },
-    {
-      "src": "apps/server/src/index.ts",
-      "use": "@vercel/node"
+      "source": "/api/(.*)",
+      "destination": "/apps/server/src/index.ts"
     }
   ],
   "functions": {
     "apps/server/src/index.ts": {
       "maxDuration": 30
     }
-  },
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/apps/server/api/$1"
-    }
-  ]
+  }
 }
