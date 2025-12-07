@@ -32,10 +32,7 @@ export function TaskStatus({ taskId }: TaskStatusProps) {
 			}
 			return response.json();
 		},
-		refetchInterval: (data) => {
-			// Polling a cada 2 segundos apenas se o status for "waiting"
-			return data?.status === "waiting" ? 2000 : false;
-		},
+		refetchInterval: 2000,
 		enabled: !!taskId,
 	});
 
