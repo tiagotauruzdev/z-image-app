@@ -8,7 +8,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { ImageGallery } from "./ImageGallery";
-import { TaskResponse } from "@/types/image";
+import type { TaskResponse } from "@/types/image";
 import { statusConfig } from "@/lib/task-status";
 
 type TaskStatusResponse = TaskResponse;

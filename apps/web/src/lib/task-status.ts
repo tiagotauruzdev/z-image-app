@@ -1,5 +1,5 @@
 import { Clock, CheckCircle, XCircle } from "lucide-react";
-import { StatusConfig, TaskResponse } from "@/types/image";
+import type { StatusConfig, TaskResponse } from "@/types/image";
 
 export const statusConfig: Record<TaskResponse["status"], StatusConfig> = {
 	waiting: {

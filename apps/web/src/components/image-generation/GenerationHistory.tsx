@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 import { ImageGallery } from "./ImageGallery";
-import { TaskResponse, HistoryResponse } from "@/types/image";
+import type { TaskResponse, HistoryResponse } from "@/types/image";
 import { statusConfig } from "@/lib/task-status";
 
 // Componente para truncar texto
