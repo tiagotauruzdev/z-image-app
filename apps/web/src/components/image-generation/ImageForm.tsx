@@ -117,12 +117,7 @@ export function ImageForm({ onTaskCreated }: ImageFormProps) {
 									disabled={isSubmitting}
 									aria-invalid={field.state.meta.errors.length > 0}
 								/>
-								{field.state.meta.errors.length > 0 && (
-									<p className="text-sm text-destructive" role="alert">
-										{field.state.meta.errors[0]?.message}
-									</p>
-								)}
-							</div>
+									</div>
 						)}
 					/>
 
@@ -155,12 +150,7 @@ export function ImageForm({ onTaskCreated }: ImageFormProps) {
 										<SelectItem value="9:16">9:16 (Stories)</SelectItem>
 									</SelectContent>
 								</Select>
-								{field.state.meta.errors.length > 0 && (
-									<p className="text-sm text-destructive" role="alert">
-										{field.state.meta.errors[0]?.message}
-									</p>
-								)}
-							</div>
+									</div>
 						)}
 					/>
 
