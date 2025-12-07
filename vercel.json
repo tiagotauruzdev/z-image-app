@@ -7,10 +7,5 @@
       "source": "/api/(.*)",
       "destination": "/apps/server/src/index.ts"
     }
-  ],
-  "functions": {
-    "apps/server/src/index.ts": {
-      "maxDuration": 30
-    }
-  }
+  ]
 }
