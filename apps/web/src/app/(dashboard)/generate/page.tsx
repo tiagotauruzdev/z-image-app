@@ -42,7 +42,6 @@ export default function GeneratePage() {
               {activeTask && (
                 <TaskStatus
                   taskId={activeTask}
-                  onComplete={() => setActiveTask(null)}
                 />
               )}
               {!activeTask && (
