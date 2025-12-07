@@ -36,7 +36,9 @@ export function ImageForm({ onTaskCreated }: ImageFormProps) {
 			prompt: "",
 			aspectRatio: "1:1",
 		} as FormValues,
-		validator: zodValidator(formSchema),
+		validators: {
+			onChange: zodValidator(formSchema),
+		},
 		onSubmit: async ({ value }) => {
 			setIsSubmitting(true);
 
