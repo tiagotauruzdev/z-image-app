@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
 export function Header() {
 	const pathname = usePathname();
 	const navigation = [
-		{ name: "Início", href: "/" },
-		{ name: "Gerar Imagem", href: "/generate" },
-		{ name: "Histórico", href: "/history" },
+		{ name: "Início", href: "/" as const },
+		{ name: "Gerar Imagem", href: "/generate" as const },
+		{ name: "Histórico", href: "/history" as const },
 	];
 
 	return (
