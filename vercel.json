@@ -1,7 +1,19 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
-  "buildCommand": "pnpm run build",
+  "buildCommand": "cd apps/web && pnpm run build",
   "installCommand": "pnpm install",
-  "outputDirectory": ".next"
+  "outputDirectory": "apps/web/.next",
+  "functions": {
+    "apps/web/src/app/api/[...route]/route.ts": {
+      "runtime": "edge",
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/[...route]"
+    }
+  ]
 }

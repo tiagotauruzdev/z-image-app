@@ -53,6 +53,7 @@ export const webhookRouter = new Hono()
       return c.json({ success: true });
     } catch (error) {
       console.error("Webhook error:", error);
-      return c.json({ error: "Invalid webhook data", details: error.message }, 400);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      return c.json({ error: "Invalid webhook data", details: errorMessage }, 400);
     }
   });

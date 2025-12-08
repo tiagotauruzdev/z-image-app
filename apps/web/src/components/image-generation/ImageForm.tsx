@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { getApiUrl } from "@/lib/api";
 
 const MAX_PROMPT_LENGTH = 1000;
 
@@ -40,7 +41,7 @@ export function ImageForm({ onTaskCreated }: ImageFormProps) {
 			setIsSubmitting(true);
 
 			try {
-				const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/image/create`, {
+				const response = await fetch(getApiUrl('/api/image/create'), {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",

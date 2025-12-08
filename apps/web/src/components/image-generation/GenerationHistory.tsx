@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 import { ImageGallery } from "./ImageGallery";
 import type { TaskResponse, HistoryResponse } from "@/types/image";
 import { statusConfig } from "@/lib/task-status";
+import { getApiUrl } from "@/lib/api";
 
 // Componente para truncar texto
 function TruncateText({ text, maxLength = 100 }: { text: string; maxLength?: number }) {
@@ -177,7 +178,7 @@ export function GenerationHistory() {
 	} = useQuery<HistoryResponse>({
 		queryKey: ["image-history"],
 		queryFn: async () => {
-			const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/image/history`);
+			const response = await fetch(getApiUrl('/api/image/history'));
 			if (!response.ok) {
 				throw new Error("Falha ao buscar histórico de imagens");
 			}

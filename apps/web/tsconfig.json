@@ -26,6 +26,12 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "server": [
+        "../server/src"
+      ],
+      "@z-image-app/db": [
+        "../../packages/db/src"
       ]
     }
   },

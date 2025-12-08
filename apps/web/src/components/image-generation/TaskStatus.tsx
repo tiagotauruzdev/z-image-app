@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { ImageGallery } from "./ImageGallery";
 import type { TaskResponse } from "@/types/image";
 import { statusConfig } from "@/lib/task-status";
+import { getApiUrl } from "@/lib/api";
 
 type TaskStatusResponse = TaskResponse;
 
@@ -26,7 +27,7 @@ export function TaskStatus({ taskId }: TaskStatusProps) {
 	} = useQuery<TaskStatusResponse>({
 		queryKey: ["task-status", taskId],
 		queryFn: async () => {
-			const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/image/status/${taskId}`);
+			const response = await fetch(getApiUrl(`/api/image/status/${taskId}`));
 			if (!response.ok) {
 				throw new Error("Falha ao buscar status da task");
 			}

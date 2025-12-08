@@ -31,22 +31,3 @@ app.get("/", (c) => {
 
 // Export default para Vercel/Next.js integration
 export default app;
-
-// Servidor de desenvolvimento apenas (não executado em produção)
-if (process.env.NODE_ENV !== 'production') {
-  const startDevServer = async () => {
-    const { serve } = await import("@hono/node-server");
-
-    serve(
-      {
-        fetch: app.fetch,
-        port: 3000,
-      },
-      (info: { port: number }) => {
-        console.log(`Server is running on http://localhost:${info.port}`);
-      },
-    );
-  };
-
-  startDevServer();
-}

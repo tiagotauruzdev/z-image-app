@@ -36,8 +36,9 @@ export const imageGenerationRouter = new Hono()
       });
     } catch (error) {
       console.error("Error creating task:", error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
       return c.json(
-        { error: "Failed to create task", details: error.message },
+        { error: "Failed to create task", details: errorMessage },
         500
       );
     }
