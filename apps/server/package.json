@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.14.4",
-    "@hono/vercel": "^0.20.0",
     "@hono/zod-validator": "^0.7.5",
     "@z-image-app/db": "workspace:*",
     "dotenv": "catalog:",
