@@ -2,6 +2,7 @@ import "dotenv/config";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
+import { handle } from "hono/vercel";
 import { imageGenerationRouter } from "./routes/image-generation";
 import { webhookRouter } from "./routes/webhook";
 
@@ -24,7 +25,15 @@ app.get("/", (c) => {
 	return c.text("OK");
 });
 
-// Para Vercel
+// Para Vercel serverless
+export const GET = handle(app);
+export const POST = handle(app);
+export const PUT = handle(app);
+export const DELETE = handle(app);
+export const PATCH = handle(app);
+export const OPTIONS = handle(app);
+
+// Para desenvolvimento local - manter export default
 export default app;
 
 // Para desenvolvimento local
