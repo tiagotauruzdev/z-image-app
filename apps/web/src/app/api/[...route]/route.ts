@@ -1,32 +1,13 @@
-// Este arquivo será substituído pelo handler da API do Hono
-// Para desenvolvimento local, use o backend separado na porta 3000
-// Para produção, o Vercel irá configurar o rewrite correto
+import { handle } from 'hono/vercel';
+import app as honoApp from '../../../../../server/src/index';
 
-export const dynamic = 'force-dynamic';
+// Configuração para usar Edge Runtime na Vercel
+export const runtime = 'edge';
 
-export async function GET(request: Request) {
-  return new Response('API proxy - use backend server at :3000 for development', {
-    status: 200,
-    headers: { 'Content-Type': 'text/plain' }
-  });
-}
-
-export async function POST(request: Request) {
-  return GET(request);
-}
-
-export async function PUT(request: Request) {
-  return GET(request);
-}
-
-export async function DELETE(request: Request) {
-  return GET(request);
-}
-
-export async function PATCH(request: Request) {
-  return GET(request);
-}
-
-export async function OPTIONS(request: Request) {
-  return new Response(null, { status: 200 });
-}
+// Export handlers para todos os métodos HTTP suportados pelo Hono
+export const GET = handle(honoApp);
+export const POST = handle(honoApp);
+export const PUT = handle(honoApp);
+export const DELETE = handle(honoApp);
+export const PATCH = handle(honoApp);
+export const OPTIONS = handle(honoApp);
