@@ -1,13 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
-  "buildCommand": "cd apps/web && pnpm run build",
+  "buildCommand": "pnpm run build",
   "installCommand": "pnpm install",
-  "outputDirectory": "apps/web/.next",
+  "outputDirectory": ".next",
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/apps/server/src/index.ts"
+      "destination": "../server/src/index.ts"
     }
   ]
 }
