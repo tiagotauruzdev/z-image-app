@@ -1,13 +1,41 @@
 import { handle } from 'hono/vercel';
-import app as honoApp from '../../../../../server/src/index';
 
-// Configuração para usar Edge Runtime na Vercel
-export const runtime = 'edge';
+// Import dinâmico para evitar problemas de build
+const getApp = async () => {
+  const { default: app } = await import('../../../../../server/src/index');
+  return app;
+};
 
-// Export handlers para todos os métodos HTTP suportados pelo Hono
-export const GET = handle(honoApp);
-export const POST = handle(honoApp);
-export const PUT = handle(honoApp);
-export const DELETE = handle(honoApp);
-export const PATCH = handle(honoApp);
-export const OPTIONS = handle(honoApp);
+// Configuração para usar Node Runtime (Edge não suporta imports dinâmicos)
+export const runtime = 'nodejs';
+
+// Export handlers que carregam o app dinamicamente
+export async function GET(request: Request) {
+  const app = await getApp();
+  return handle(app)(request);
+}
+
+export async function POST(request: Request) {
+  const app = await getApp();
+  return handle(app)(request);
+}
+
+export async function PUT(request: Request) {
+  const app = await getApp();
+  return handle(app)(request);
+}
+
+export async function DELETE(request: Request) {
+  const app = await getApp();
+  return handle(app)(request);
+}
+
+export async function PATCH(request: Request) {
+  const app = await getApp();
+  return handle(app)(request);
+}
+
+export async function OPTIONS(request: Request) {
+  const app = await getApp();
+  return handle(app)(request);
+}
